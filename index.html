@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <link href="https://fonts.googleapis.com/css?family=Caveat|Courgette|Patrick+Hand&display=swap" rel="stylesheet">
+   <link rel="icon" href="favicon.png" />
+   <title>Recipes</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      body {
+         line-height: 1;
+         font-family: 'Courgette', cursive;
+         color: #555;
+         min-height: 100vh;
+         background: linear-gradient(to bottom right, #49a09d, #5f2c82);
+      }
+
+      h1 {
+         margin-top: 40px;
+         font-family: 'Caveat', cursive;
+         font-size: 3rem;
+         color: rgb(234, 227, 238);
+         transform: skewY(-4deg);
+         text-align: center;
+         position: relative;
+         word-spacing: 3px;
+         text-transform: uppercase;
+      }
+
+      h1::before {
+         content: '';
+         display: block;
+         height: 10%;
+         width: 17%;
+         position: absolute;
+         top: 105%;
+         left: 50%;
+         background: linear-gradient(to bottom, #5f2c82, #49a09d);
+         opacity: 0.4;
+         z-index: -1;
+         transform: skewY(-1deg) translate(-48%, 250%);
+      }
+
+      .container {
+         width: 80%;
+         margin: 0 auto;
+      }
+
+      .column {
+         float: left;
+         width: 25%;
+         padding: 0 10px;
+      }
+
+      .row {
+         margin: 0 -5px;
+      }
+
+      .row:after {
+         content: "";
+         display: table;
+         clear: both;
+      }
+
+      @media screen and (max-width: 600px) {
+         .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+         }
+      }
+
+      .container-card {
+         margin-top: 80px;
+      }
+
+      .card {
+         background: rgba(255, 255, 255, 0.7);
+         box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.1);
+         margin-bottom: 3rem;
+         transition: all 0.5s;
+         transform: skewX(-3deg);
+         text-align: center;
+         padding: 25px 30px;
+      }
+
+      .card_title {
+         font-family: 'Caveat', cursive;
+         color: #DBD7EE;
+         font-size: 1.8rem;
+         background: linear-gradient(to right bottom, #5f2c82, #49a09d);
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+         margin-bottom: 10px;
+      }
+
+      .recipe_image {
+         margin-bottom: 10px;
+
+      }
+
+      .rec-img {
+         width: 100%;
+         height: 220px;
+         /* height: 190px; */
+         /* transition: transform .5s; */
+      }
+
+      .description {
+         font-size: 14px;
+         margin-bottom: 10px;
+      }
+
+      .card:hover {
+         transform: skewX(-5deg) scale(1.03);
+         box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.18);
+      }
+
+      .button:active,
+      .button:link,
+      .button:visited {
+         border-radius: 4px;
+         background: linear-gradient(to right bottom, #5f2c82, #49a09d);
+         border: none;
+         color: #FFFFFF;
+         text-align: center;
+         font-size: 15px;
+         padding: 10px;
+         width: 200px;
+         transition: all 0.2s;
+         cursor: pointer;
+         margin: 5px;
+      }
+
+      .button span {
+         cursor: pointer;
+         display: inline-block;
+         position: relative;
+         transition: 0.2s;
+      }
+
+      .button span:after {
+         content: '\00bb';
+         position: absolute;
+         opacity: 0;
+         top: 0;
+         right: -10px;
+         transition: 0.2s;
+      }
+
+      .button:hover span {
+         padding-right: 20px;
+      }
+
+      .button:hover span:after {
+         opacity: 1;
+         right: 0;
+      }
+
+      /* .rec-img:hover{
+         transform:scale(1.02);
+         } */
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <h1>🍴 Recipes</h1>
+      <div class="container-card">
+         <div class="row">
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Tal’s Tahini “bread pudding”</div>
+                  <div class=recipe_image><img src="http://forkgasm.com/images/bread-pudding.png" class="rec-img"></div>
+                  <p class="description">A delicious baked dessert!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Grand Marnier & Coffee Ice Cream</div>
+                  <div class=recipe_image><img src="https://forkgasm.com/images/grand-marnier-ice-cream.jpg"
+                        class="rec-img"></div>
+                  <p class="description">Easy and decadent!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Turnip Noodle Carbonara</div>
+                  <div class=recipe_image><img src="http://forkgasm.com/images/carbonara.jpg" class="rec-img"></div>
+                  <p class="description">A healthier version of the classic dish that tastes just as good!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Spiced lamb chops with mint-mango sauce</div>
+                  <div class=recipe_image><img
+                        src="http://forkgasm.com/images/40813912_2213541505597183_7740637805202109577_n.jpg"
+                        class="rec-img"></div>
+                  <p class="description">Delicious, refreshing, and super quick to make!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Tal’s Tahini “bread pudding”</div>
+                  <div class=recipe_image><img src="http://forkgasm.com/images/bread-pudding.png" class="rec-img"></div>
+                  <p class="description">A delicious baked dessert!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Grand Marnier & Coffee Ice Cream</div>
+                  <div class=recipe_image><img src="https://forkgasm.com/images/grand-marnier-ice-cream.jpg"
+                        class="rec-img"></div>
+                  <p class="description">Easy and decadent!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Turnip Noodle Carbonara</div>
+                  <div class=recipe_image><img src="http://forkgasm.com/images/carbonara.jpg" class="rec-img"></div>
+                  <p class="description">A healthier version of the classic dish that tastes just as good!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card">
+                  <div class="card_title">Spiced lamb chops with mint-mango sauce</div>
+                  <div class=recipe_image><img
+                        src="http://forkgasm.com/images/40813912_2213541505597183_7740637805202109577_n.jpg"
+                        class="rec-img"></div>
+                  <p class="description">Delicious, refreshing, and super quick to make!</p>
+                  <br>
+                  <div> <a href="#" class="button"><span>Details </span></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
