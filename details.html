@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="https://fonts.googleapis.com/css?family=Caveat|Courgette|Patrick+Hand&display=swap" rel="stylesheet">
-    <link
-      rel="icon"
-      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
-    />
+    <link rel="icon" href="images/favicon.png" />
 
     <title>Recipes</title>
 
     <style>
-         * {
+         *,
+         *::before,
+         *::after {
          margin: 0;
          padding: 0;
          box-sizing: border-box;
@@ -63,91 +62,31 @@
 
   
       .container {
-        width: 95rem;
+        width: 98rem;
         margin: 0 auto;
       }
 
-      .product {
-        width: 60rem;
+      .recipes {
+        width: 80rem;
         margin: 0 auto;
-        margin-top: 9rem;
+        margin-top: 5rem;
         background: white;
         box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.2);
         position: relative;
       }
 
-      .product__hero {
-        position: relative;
-        height: 22rem;
-        overflow: hidden;
+      .recipe__image {
+        padding:50px;
+        text-align: center;
+        background: linear-gradient(to left, #5f2c82, #49a09d);
+
+      }
+      .recipe__image img{
+        width: 50%;
+
       }
 
-      .product__hero::before {
-        content: '';
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: linear-gradient(to right bottom, #5f2c82, #49a09d);
-        opacity: 0.5;
-        z-index: 100;
-      }
-
-      .product__emoji {
-        font-size: 15rem;
-        position: absolute;
-      }
-
-      .product__emoji--1 {
-        top: -4rem;
-        left: -2rem;
-        z-index: 10;
-      }
-
-      .product__emoji--2 {
-        top: -6rem;
-        left: 9rem;
-      }
-
-      .product__emoji--3 {
-        top: -4rem;
-        right: 15rem;
-      }
-
-      .product__emoji--4 {
-        top: -5rem;
-        right: 2rem;
-        z-index: 10;
-      }
-
-      .product__emoji--5 {
-        bottom: -9rem;
-        left: 18rem;
-      }
-
-      .product__emoji--6 {
-        bottom: -8rem;
-        left: 5rem;
-      }
-
-      .product__emoji--7 {
-        bottom: -12rem;
-        right: 14rem;
-      }
-
-      .product__emoji--8 {
-        bottom: -8rem;
-        right: -2rem;
-      }
-
-      .product__emoji--9 {
-        top: -7rem;
-        left: 19rem;
-      }
-
-      .product__organic {
+      .recipe__tag {
         position: absolute;
         top: -4rem;
         right: -4rem;
@@ -163,15 +102,15 @@
         justify-content: center;
       }
 
-      .product__organic h5 {
+      .recipe__tag h5 {
         font-weight: 900;
         text-transform: uppercase;
         font-size: 1.8rem;
         color: white;
       }
 
-      .product__back:link,
-      .product__back:visited {
+      .recipe__back:link,
+      .recipe__back:visited {
         position: absolute;
         top: 2rem;
         left: 2rem;
@@ -190,23 +129,27 @@
         align-items: center;
       }
 
-      .product__back:hover,
-      .product__back:active {
+      .recipe__back:hover,
+      .recipe__back:active {
         background-color: #57568C;
         color:#eee
       }
 
-      .product__name {
+      .recipe__name {
         background: linear-gradient(to right bottom, #5f2c82, #49a09d);
         padding: 1rem;
-        font-family: 'Megrim', sans-serif;
+        font-family: 'Caveat', cursive;
         font-size: 4rem;
         color: white;
         text-align: center;
         word-spacing: 2px;
       }
-
-      .product__details {
+      .recipe__title{
+        background-color: #eee;
+        padding: 2rem 6rem;
+        font-size: 1.9rem;
+      }
+      .recipe__ingredients {
         background-color: #eee;
         padding: 4rem 6rem;
         font-size: 1.9rem;
@@ -215,21 +158,16 @@
         grid-gap: 1.5rem;
       }
 
-      .product__description {
+      .recipe__steps {
         padding: 5rem 6rem;
         font-size: 1.6rem;
         line-height: 1.8;
       }
 
-      .product__link:link,
-      .product__link:visited {
-        display: block;
+      .recipe__description {
         background-color: #57568C;
         color: white;
         font-size: 1.6rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-decoration: none;
         padding: 1.5rem;
         text-align: center;
         transform: scale(1.07) skewX(-20deg);
@@ -237,30 +175,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s;
+
       }
 
-      .product__link:hover,
-      .product__link:active {
-        background-color: #5A4688;
-        transform: scale(1.1) skewX(-20deg);
-      }
-
-      .product__link span {
+      .recipe__description p {
         transform: skewX(20deg);
       }
 
+      .ingredient {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
       .emoji-left {
         font-size: 2rem;
         margin-right: 1rem;
       }
-
       .emoji-right {
         font-size: 2rem;
         margin-left: 1rem;
       }
 
-      .not-organic {
+      .not-tag {
         display: none;
       }
     </style>
@@ -270,37 +205,36 @@
     <div class="container">
       <h1>🍴 Recipes</h1>
 
-      <figure class="product">
-        <div class="product__organic"><h5>Dessert</h5></div>
-        <a href="#" class="product__back">
+      <figure class="recipes">
+        <div class="recipe__tag"><h5>tag</h5></div>
+        <a href="#" class="recipe__back">
           <span class="emoji-left">👈</span>Back
         </a>
-        <div class="product__hero">
+        <div class="recipe__image">
          <img src="http://forkgasm.com/images/bread-pudding.png">
         </div>
-        <h2 class="product__name">Fresh Avocados</h2>
-        <div class="product__details">
-          <p><span class="emoji-left">🌍</span> From Portugal</p>
-          <p><span class="emoji-left">❤️</span> Vitamin B, Vitamin K</p>
-          <p><span class="emoji-left">📦</span> 4 🥑</p>
-          <p><span class="emoji-left">🏷</span> 6.50€</p>
+        <h2 class="recipe__name">Tal’s Tahini “bread pudding”"</h2>
+        <h3 class="recipe__title">Ingredients</h3>
+        <div class="recipe__ingredients">
+          <p><span class="ingredient"></span> tahini</p>
+          <p><span class="ingredient"></span> eggs</p>
+          <p><span class="ingredient"></span> baking powder</p>
+          <p><span class="ingredient"></span> honey</p>
         </div>
   
-        <a href="#" class="product__link">
-          <span class="emoji-left">🛒</span>
-          <span>Add to shopping card (6.50€)</span>
-        </a>
-  
-        <p class="product__description">
-          A ripe avocado yields to gentle pressure when held in the palm of the
-          hand and squeezed. The fruit is not sweet, but distinctly and subtly
-          flavored, with smooth texture. The avocado is popular in vegetarian
-          cuisine as a substitute for meats in sandwiches and salads because of
-          its high fat content. Generally, avocado is served raw, though some
-          cultivars, including the common 'Hass', can be cooked for a short time
-          without becoming bitter. It is used as the base for the Mexican dip
-          known as guacamole, as well as a spread on corn tortillas or toast,
-          served with spices.
+        <div class="recipe__description">
+          <p>A delicious baked dessert that takes 5 minutes to make!"</p>
+        </div>
+        <h3 class="recipe__title">Steps</h3>
+        <p class="recipe__steps">
+          Beat all ingredients together really well in a blender.
+          Pour mixture in an oiled cake tray (we suggest sesame oil for the oiling) and sprinkle with sesame seeds.
+          Bake for 25-30 minutes at 345F (convection bake is better). Depending on your oven, you may want to turn it around (horizontally) after 15 minutes to ensure even baking.
+          Done, enjoy! We actually eat it with a spoon straight from the cake tray!
+        </p>
+        <h3 class="recipe__title">Note</h3>
+        <p class="recipe__steps">
+          - If you are not avoiding carbs, you can substitute the maple extract with maple syrup.\n- Other ingredients we've tried (not all at once!): cardamom, Grand Marnier, vanilla extract. Feel free to experiment!
         </p>
       </figure>
       

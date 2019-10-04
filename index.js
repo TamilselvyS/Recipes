@@ -4,7 +4,7 @@ const url = require('url');
 
 
 //Json file
-const data = fs.readFileSync(`${__dirname}/recipes.json`, 'utf-8');
+const data = fs.readFileSync(`${__dirname}/data/recipes.json`, 'utf-8');
 const dataObject = JSON.parse(data);
 
 //creating a server
